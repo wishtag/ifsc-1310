@@ -1,1 +1,189 @@
 <!-- First Assignment -->
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8"> <!-- What character encoding to use -->
+
+  <title>Celebi Hunter</title> <!-- The name that shows up on the tab -->
+  <meta name="description" content="A python program for mGBA that soft resets until it finds a shiny Celebi."> <!-- A short summary of the website -->
+  <meta name="author" content="Hayden Phillips"> <!-- Not sure what to say here, pretty self explanatory -->
+
+</head>
+
+<body>
+  <header id="top">
+    <img src="https://github.com/wishtag/celebi-hunter/raw/refs/heads/main/img/banner.png" alt="banner">
+    <h1>Celebi Hunter</h1>
+    <p>A python program for mGBA that soft resets until it finds a shiny Celebi</p>
+    <p>If you've seen my <a href="https://github.com/wishtag/frame-hunter">other project</a> then this may seem familiar, and you would be correct. This is just a modified version of that with the specific intention of searching for Celebi.</p>
+    <p>You may be asking <q>what's the point of this?</q> You can't transfer Pokémon up from the Gen 2 games unless it's on the 3DS virtual console, and this is for the GBC version." and you'd be right. But if you're here, then you probably aren't opposed to breaking a few rules. Jump <a href=#prepare>here</a> to see how to activate Celebi in your game, and how to transfer it up once you've got it.</p>
+  </header>
+
+  <main>
+    <nav>
+      <ul>
+          <li><a href="index.html" title="Go to Home">Home</a></li>
+          <li><a href="https://en.wikipedia.org/wiki/University_of_Arkansas_at_Little_Rock" target="_blank" title="About UALR">About</a></li>
+          <li><a href="https://ualr.edu" target="_blank" title="UALR Website">UALR</a></li>
+          <li><a href="mailto:example@example.com" title="Contact Us">Contact</a></li>
+          <li><a href="https://github.com/wishtag/celebi-hunter" target="_blank" title="Celebi Hunter">Celebi Hunter GitHub</a></li>
+      </ul>
+    </nav>
+
+    <section id="features">
+      <h2>Features</h2>
+
+      <h3>Encountering</h3>
+      <p>The way this works is the program soft resets the game, and then blindly sends inputs until the battle UI appears on screen. These blind inputs are just to mash through text and the title screen. Once the battle UI appears on screen, the program checks if the Celebi is shiny. If it's not shiny, the program restarts the process. This program also utilizes mGBA's <em>speed up</em> feature to encounter even more Celebi in less the time.</p>
+
+      <h3>Logging</h3>
+      <p>Tracks and saves the total encounters and elapsed time to <code>resets.json</code>.</p>
+
+      <h3>Shiny Detection</h3>
+      <p>The shiny detection is pretty simple, by choosing a color from the non-shiny variant that doesn't appear on the shiny variant, the program can tell if a Celebi is shiny. The program simply checks if a specific pixel is a certain color, if it is that color, then it's not shiny. But if it isn't that color, then you found a shiny!</p>
+    
+      <h3>Discord Notifying</h3>
+      <p>Through the use of a discord webhook, the program will notify you when it finds a shiny.</p>
+      <img src="https://github.com/wishtag/celebi-hunter/raw/refs/heads/main/img/Webhookoutput.png" alt="Webhook">
+    </section> <!-- Closing Features -->
+
+    <section id="showcase">
+      <h2>Showcase</h2>
+      <video width="600" controls>
+        <source src="https://github.com/user-attachments/assets/d2dd9b7d-26f6-47f8-9000-e23c4b10dcc6">
+      </video>
+    </section> <!-- Closing Showcase -->
+
+    <section id="prerequisites">
+      <h2>Prerequisites</h2>
+      <dl>
+        <dt>PKHeX</dt>
+        <dd>A save editor compatible with most, if not all, pokemon games.</dd>
+
+        <dt>Citra</dt>
+        <dd>An emulator to play 3DS games on a computer.</dd>
+
+        <dt>paint.net</dt>
+        <dd>An image editing software.</dd>
+
+        <dt>Checkpoint</dt>
+        <dd>An application to backup and override saves on a 3DS.</dd>
+      </dl>
+    </section> <!-- Closing Prerequisites -->
+
+    <section id="setup">
+      <h2>Setup</h2>
+      <p>Most of the setup is very easy, the hardest part is setting up the bounding boxes and stuff</p>
+
+      <h3>Getting Positions</h3>
+      <p>If you are on a 1080p display and position your window the same way shown in the showcase video then you should be able to skip everything under this section and just use the default values.</p>
+
+      <h4>Game Screen</h4>
+      <ol>
+        <li>Take a screenshot of your whole screen.</li>
+        <li>Open the screenshot in an image editing software, I use <a href="https://www.getpaint.net/">paint.net</a>.</li>
+        <li>Determine how many pixels each side of the actualy game window is away from 0. For example: the left side of my game is 961 pixels from the left of the screen and the right side is 1919 from the left of the screen. The top of my game is 135 pixels away from the top of my screen and the bottom of my game is 997 pixels from the top of my screen. (I hope that all made sense)</li>
+        <li>Take the 4 numbers you got and enter them into <code>"game_screen": []</code> which is under <code>"bounding_boxes"</code> in <code>settings.json</code>. For reference this is what mine looks like: <code>"game_screen": [961, 135, 1919, 997]</code></li>
+      </ol>
+
+      <h4>Encounter</h4>
+      <ol>
+        <li>Encounter Celebi.</li>
+        <li>Take a screenshot of your whole screen, and then once again open it in an image editing software.</li>
+        <li>Pick one of the green pixels from the Celebi sprite.</li>
+        <li>Determine how far the pixel is from the left side and top of the screen. For example: the pixel I chose is 1670 pixels from the left of the screen and 420 pixels from the top of the screen.</li>
+        <li>Take those 2 numbers you got and enter them into <code>"encounter": []</code> which is under <code>"bounding_boxes"</code> in <code>settings.json</code>. For reference this is what mine looks like: <code>"encounter": [1670, 420]</code><blockquote>You shouldn't have to do these next 2 steps and should be able to just leave them as the default, but if your display colors are different for some reason, then you'll want to do this.</blockquote></li>
+        <li>Go back to the image editing software and get the RGB values of the pixel you chose.</li>
+        <li>Take those 3 numbers you got and enter them into the other <code>"encounter": []</code> which is under <code>"colors"</code> in <code>settings.json</code>. For reference this is what mine looks like: <code>"encounter": [82, 255, 0]</code></li>
+      </ol>
+
+      <h4>HP</h4>
+      <ol>
+        <li>You can reuse the screenshot from the last part, otherwise, encounter the Pokémon and wait for all the UI to show up, then screenshot your whole screen.</li>
+        <li>Open in image editing software, you get it by this point.</li>
+        <li>Pick a pixel on the text that says HP for Celebi's health bar. We do this because when the Pokémon is first encountered, its colors are in grayscale. By the time Celebi's health bar appears, the Pokémon is no longer in grayscale.</li>
+        <li>Repeat steps 4-7 from the last part except enter the values into <code>"hp": []</code> instead of <code>"encounter": []</code>.</li>
+      </ol>
+
+      <h3>Settings</h3>
+      <p>The names for each setting is pretty self explanatory so I won't address each one, maybe that's just me being lazy but I have faith that you can figure it out.</p>
+    </section> <!-- Closing Setup -->
+    
+    <section id="usage">
+      <h2>Usage</h2>
+
+      <h3><code>main.py</code></h3>
+      <p>First, position yourself in front of the Ilex Forest Shrine and save your game. You are also going to want a Pokémon in the front of your party that has a non-damaging move as its first move. This is because sometimes the program misses what it is looking for in the screenshot it takes and can end up sending unwanted inputs. Doing it this way, we ensure that if and inputs are accidently sent, that the attack it ends up using doesn't KO the Celebi. After you have done that then you can run this program. When this program starts there will be a 3 second countdown before it starts sending inputs. In that 3 seconds, make sure you've focused on the game so that the inputs will connect. And that's pretty much all there is to it, now you just watch.</p>
+    </section> <!-- Closing Usage -->
+
+    <section id="prepare">
+      <h2>Preparing Your Game and Transferring Up</h2>
+
+      <h3>Preparing</h3>
+      <p>To enable the Celebi event in the GBC version of Crystal, you'll need to edit your save file. Open your save file in <a href="https://projectpokemon.org/home/files/file/1-pkhex/">PKHeX</a>. Navigate to the <code>SAV</code> tab and then click the button that says <code>Event Flags</code>. From here, check the boxes corresponding to the event flags <code>Received GS Ball</code> and <code>GS Ball can be inserted into Ilex Forest Shrine</code>. Save the changes and then click the <code>Items</code> button. Go to the <code>Key Items</code> tab and select one of the slots labelled <code>(None)</code>. Change it so that instead of <code>(None)</code> it is <code>GS Ball</code> and then change the count from <code>0</code> to <code>1</code>. Save the changes and then export your save. Now you should be able to encounter Celebi.</p>
+
+      <h3>Transferring</h3>
+      <p>If you are wanting to transfer this Celebi up to Pokémon Home, then you are going to need a modded 3DS. First, use <a href="https://github.com/BernardoGiordano/Checkpoint">Checkpoint</a> to backup the save of a Gen 7 game on the 3DS. Power off the 3DS and remove the SD card so you can connect it to your computer. Open 2 instances of PKHeX, one with your Crystal save open, and the other with your Gen 7 save open. Drag the Celebi from your Crystal save to your Gen 7 save, this should place the Celebi in your Gen 7 game's box. Export your Gen 7 save and replace the Checkpoint backup with the one we just exported. Put the SD card back into the 3DS and boot into CFW. Open Checkpoint again and load the save. Now if you open your Gen 7 game, you should have the Celebi. From here you can transfer it to Pokémon Bank and then to Pokémon Home. Pokémon Bank and Pokémon Home should both recognize this Celebi as originating from the 3DS virtual console version of Pokémon Crystal. You shouldn't get banned doing this, but if you do, <strong>I take no responsibility.</strong></p>
+    </section> <!-- Closing Prepare -->
+
+    <img src="https://thomaswallace.net/wp-content/uploads/2018/02/ualr.png" alt="UALR">
+    <table>
+      <caption>Employee Details</caption>
+      <thead>
+          <tr>
+              <th scope="col">National Dex</th>
+              <th scope="col">Name</th>
+              <th scope="col">HP</th>
+              <th scope="col">Attack</th>
+              <th scope="col">Defense</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>0206</td>
+              <td>Dunsparce</td>
+              <td>100</td>
+              <td>70</td>
+              <td>70</td>
+          </tr>
+          <tr>
+              <td>0405</td>
+              <td>Luxray</td>
+              <td>80</td>
+              <td>120</td>
+              <td>79</td>
+          </tr>
+          <tr>
+              <td>0677</td>
+              <td>Espurr</td>
+              <td>62</td>
+              <td>48</td>
+              <td>54</td>
+          </tr>
+          <tr>
+              <td>0493</td>
+              <td>Arceus</td>
+              <td>120</td>
+              <td>120</td>
+              <td>120</td>
+          </tr>
+          <tr>
+              <td>0385</td>
+              <td>Jirachi</td>
+              <td>100</td>
+              <td>100</td>
+              <td>100</td>
+          </tr>
+      </tbody>
+    </table>
+  
+  </main>
+  
+  <footer>
+    <p>&copy; 2025, Hayden Phillips, <a href="mailto:hlphillips1@ualr.edu">Contact</a></p>
+    <p><a href="#top">Return to Top</a></p>
+  </footer>
+
+</body>
+</html>
