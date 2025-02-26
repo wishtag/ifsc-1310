@@ -1,5 +1,30 @@
 /* CSS Demo Stylesheet */
 
+html {
+    box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
 body {
-background-color: lightpink;
+    font-family: "Roboto", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+main{
+    width: 80vw;
+    max-width: 960px;
+    background-color: lightpink;
+}
+
+header.primary{
+    background-color: aqua;
+    color: black;
+    text-align: center;
+    text-shadow: 2px 1px #000;
 }
