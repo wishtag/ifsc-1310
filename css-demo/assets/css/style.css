@@ -19,6 +19,12 @@ html {
     margin: 40px auto;
 }
 
+/*  ---------------Responsive Images-----------------  */
+
+img{
+    max-width: 100%;
+}
+
 body {
     font-family: "Roboto", serif;
     font-optical-sizing: auto;
@@ -95,6 +101,60 @@ nav.primary ul li a:hover{
 #content h3{
     border-left:5px solid #8b3b87;
     padding: 5px 0 5px 10px;
+}
+
+#blog{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+}
+
+#blog article.post{
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .6);
+    padding: 10px;
+    font-size: .8rem;
+    border-radius: 4px;
+    transition: .25s;
+}
+
+#blog article.post:hover{
+    box-shadow: 0 8px 16px rgba(0, 0, 0, .6);
+}
+
+figure{
+    margin:0;
+}
+
+figcaption, time{
+    text-transform: uppercase;
+    text-align: center;
+}
+
+#blog article.post a{
+    color: #8b3b87;
+}
+
+aside[role="complementary"]{
+    background-color:#8b3b87;
+    color: #ffffff;
+    padding:40px 0;
+}
+
+aside .container{
+    display: flex;
+    flex-direction: row;
+    gap:40px;
+}
+
+aside .container a:last-child{
+    color: #ffffff;
+    display: block;
+    text-align: right;
+}
+
+aside article footer{
+    display:none;
 }
 
 @media screen and (max-width:550px){
