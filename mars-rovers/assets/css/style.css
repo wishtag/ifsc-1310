@@ -23,7 +23,7 @@ box-sizing: inherit;
 .container {
     width: 80vw;
     margin: 40px auto;
-    max-width: 900px;
+    max-width: 1000px;
 }
 
 .img-right {
@@ -62,12 +62,12 @@ body {
 }
 
 header.primary {
-    background-color: #181c1f;
+    background-color: #77001F;
     text-align: center;
     color: #ffffff;
     text-shadow: 2px 2px #000000;
     /* Shorhand T,R,B,L*/
-    padding: 6em 2em;
+    padding: 3em 2em;
     position: relative;
 }
 
@@ -80,12 +80,11 @@ header.primary::before {
     right: 0px;
     bottom: 0px;
     left: 0px;
-    opacity: 0.4;
+    opacity: .8;
 }
 
 header.primary h1 {
     font-size: 3.2rem;
-    margin: 20px 0;
     position: relative;
 }
 
@@ -104,8 +103,6 @@ header.primary h1 a {
 header.primary h2 {
     font-family: "Special Gothic Expanded One", sans-serif;
     font-size: 2em;
-    /* Shorhand Three Value Top, Left/Right, Bottom*/
-    margin: 20px auto 40px;
     position: relative;
 }
 
@@ -151,7 +148,7 @@ section#content {
 section#content h2{
     font-family: "Special Gothic Expanded One", sans-serif;
     color: #D30628;
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
 section#content h3{
@@ -202,8 +199,7 @@ section#articles {
 
 section#articles .container {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
     flex-wrap: wrap;
     border-bottom: 1px solid #c0c0c0;
     padding: 0 0 4em 0;
@@ -215,7 +211,7 @@ section#articles h2,
     color: #33536b;
     text-align: center;
     font-family: "Special Gothic Expanded One", sans-serif;
-    font-size: 2em;
+    font-size: 2rem;
 }
 
 section#articles h2 {
@@ -224,46 +220,30 @@ section#articles h2 {
 }
 
 #articles article.post {
-    width: 45%;
+    width: 100%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     padding: 10px;
-    transition: 0.6s;
+    transition: 0.25s;
     font-size: 0.8rem;
     border-radius: 10px;
     background: #fff;
+    margin-bottom: 20px;
 }
 
 #articles article.post h2 {
-    font-size: 1.5em;
+    font-size: 2em;
     text-shadow: none;
     text-align: left;
 }
 
-#articles article.post figure img{
-    display: flex;
-    align-self: right;
-}
-
 #articles article.post:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-}
-
-#articles article time,
-#articles article figcaption,
-#articles article footer {
-    font-size: 0.8em;
-    color: #c0c0c0;
-    text-transform: uppercase;
+    background: rgba(255, 255, 255, 0.9)
 }
 
 #articles .post a:link,
 #articles .post a:visited {
     color: #D30628;
     text-decoration:none;
-}
-
-#articles .post figure {
-    margin: 0;
 }
 
 #articles .post img {
