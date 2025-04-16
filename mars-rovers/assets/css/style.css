@@ -13,38 +13,42 @@ html {
 
 /*  ---------------Utility Classes-----------------  */
 
-.container{
-    width:80vw;
-    max-width: 960px;
+.container {
+    width: 80vw;
     margin: 40px auto;
+    max-width: 900px;
+}
+  
+.img-right {
+    float: right;
+    margin: 10px 0 10px 20px;
+    border: 1px solid #c0c0c0;
+    padding: 5px;
+    max-width:33%;
 }
 
-.img-right{
-    float: right;
-    border:1px solid #c0c0c0;
-    padding:5px;
-    margin:10px 0 10px 20px;
-    max-width: 30vw;
-}
-.img-left{
+.img-left {
     float: left;
-    border:1px solid #c0c0c0;
-    padding:5px;
-    margin:10px 20px 10px 0;
-    max-width: 30vw;
+    margin: 10px 20px 10px 0;
+    border: 1px solid #c0c0c0;
+    padding: 5px;
 }
-.img-center{
+
+.img-center {
     display: block;
-    margin: 10px auto;
-    border:1px solid #c0c0c0;
-    padding:5px;
+    margin: 20px auto;
+    border: 1px solid #c0c0c0;
+    padding: 5px;
 }
 
 /*  ---------------Responsive Images-----------------  */
 
-img{
+img {
     max-width: 100%;
+    height: auto;
 }
+  
+/* ----- Global Styles ---- */
 
 body {
     font-family: "Kanit", sans-serif;
@@ -109,6 +113,9 @@ header.primary nav ul li a:hover{
     background-color:rgba(12, 20, 36, 1);
 }
 
+#articles p{
+    font-size: 1.5rem;
+}
 
 #colophon{
     background-color: #aabce0;
@@ -117,8 +124,11 @@ header.primary nav ul li a:hover{
     background-attachment: fixed;
     padding: 5px;
     text-align: center;
-    color:#ffffff;
-    text-shadow: 1px 1px #000;
+    color:#0C1424;
+}
+
+#colophon a{
+    color: #233A68;
 }
 
 @media screen and (max-width:550px){
