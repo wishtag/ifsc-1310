@@ -57,7 +57,7 @@ img {
 /* ----- Global Styles ---- */
 
 body {
-    font-family: "Lato", sans-serif;
+    font-family: "Exo", sans-serif;
     margin: 0;
 }
 
@@ -102,7 +102,7 @@ header.primary h1 a {
 }
 
 header.primary h2 {
-    font-family: "Goldman", cursive;
+    font-family: "Special Gothic Expanded One", sans-serif;
     font-size: 2em;
     /* Shorhand Three Value Top, Left/Right, Bottom*/
     margin: 20px auto 40px;
@@ -149,12 +149,13 @@ section#content {
 }
 
 section#content h2{
-    font-family: "Goldman", cursive;
+    font-family: "Special Gothic Expanded One", sans-serif;
     color: #D30628;
+    font-size: 1.5rem;
 }
 
 section#content h3{
-    font-family: "Goldman", cursive;
+    font-family: "Special Gothic Expanded One", sans-serif;
     font-size:1.5rem;
 }
 
@@ -168,7 +169,7 @@ section#content caption{
     font-weight:bold;
     font-size:1.5rem;
     margin:10px;
-    font-family: "Goldman", cursive;
+    font-family: "Special Gothic Expanded One", sans-serif;
     font-size: 2em;
     color: #33536b;
 }
@@ -213,7 +214,7 @@ section#articles h2,
     flex: 0 0 100%;
     color: #33536b;
     text-align: center;
-    font-family: "Goldman", cursive;
+    font-family: "Special Gothic Expanded One", sans-serif;
     font-size: 2em;
 }
 
@@ -235,6 +236,12 @@ section#articles h2 {
 #articles article.post h2 {
     font-size: 1.5em;
     text-shadow: none;
+    text-align: left;
+}
+
+#articles article.post figure img{
+    display: flex;
+    align-self: right;
 }
 
 #articles article.post:hover {
@@ -253,7 +260,6 @@ section#articles h2 {
 #articles .post a:visited {
     color: #D30628;
     text-decoration:none;
-    text-shadow:1px 1px #000;
 }
 
 #articles .post figure {
@@ -269,12 +275,6 @@ section#articles h2 {
 }
 #articles li {
     margin-bottom: 20px;
-}
-
-/* ------------- Hero --------------- */
-
-#hero {
-    padding: 4em 0;
 }
 
 /* ------------- Aside --------------- */
