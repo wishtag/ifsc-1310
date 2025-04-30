@@ -1,0 +1,373 @@
+/* Color Theme  
+#FFB2B6
+#FF6E74
+#E81224
+#D30628
+#77001F
+*/
+
+/* ---------------Box Sizing----------------- */
+
+html {
+box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+box-sizing: inherit;
+}
+
+
+/* ----- Utility Styles ---- */
+
+.container {
+    width: 80vw;
+    margin: 40px auto;
+    max-width: 1000px;
+}
+
+.img-right {
+    float: right;
+    margin: 10px 0 10px 20px;
+    border: 1px solid #c0c0c0;
+    padding: 5px;
+    max-width:33%;
+}
+
+.img-left {
+    float: left;
+    margin: 10px 20px 10px 0;
+    border: 1px solid #c0c0c0;
+    padding: 5px;
+}
+
+.img-center {
+    display: block;
+    margin: 20px auto;
+    border: 1px solid #c0c0c0;
+    padding: 5px;
+}
+
+/* ---- Responsive Images ----*/
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ----- Global Styles ---- */
+
+body {
+    font-family: "Exo", sans-serif;
+    margin: 0;
+}
+
+header.primary {
+    background-color: #77001F;
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 2px 2px #000000;
+    /* Shorhand T,R,B,L*/
+    padding: 3em 2em;
+    position: relative;
+}
+
+header.primary::before {
+    content: "";
+    background-image: url("https://images-assets.nasa.gov/image/PIA08636/PIA08636~orig.jpg");
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: .8;
+}
+
+header.primary h1 {
+    font-size: 3.2rem;
+    position: relative;
+}
+
+header.primary h1 a {
+    color: #ffffff;
+    background-image: url("../img/nasa.png");
+    display: block;
+    width: 400px;
+    height: 112px;
+    margin: 0 auto;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+header.primary h2 {
+    font-family: "Special Gothic Expanded One", sans-serif;
+    font-size: 2em;
+    position: relative;
+}
+
+header.primary nav ul {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0;
+    max-width: 900px;
+    margin: 20px auto;
+}
+
+header.primary nav li {
+    list-style-type: none;
+    padding: 0;
+    width: 20%;
+}
+
+header.primary nav a:link,
+header.primary nav a:visited {
+    color: white;
+    text-decoration: none;
+    background-color: #000000;
+    background-color: #77001F;
+    padding: 8px 16px;
+    border-radius: 10px;
+    transition: 0.6s;
+    display: block;
+}
+
+header.primary nav a:hover,
+header.primary nav a:active {
+    background-color: #D30628;
+}
+
+/* ------------- Content --------------- */
+
+section#content {
+    padding: 2em 0;
+}
+
+section#content h2{
+    font-family: "Special Gothic Expanded One", sans-serif;
+    color: #D30628;
+    font-size: 2rem;
+}
+
+section#content h3{
+    font-family: "Special Gothic Expanded One", sans-serif;
+    font-size:1.5rem;
+}
+
+section#content table{
+    width:100%;
+    border: 1px solid #c0c0c0;
+    border-collapse:collapse;
+}
+
+section#content caption{
+    font-weight:bold;
+    font-size:1.5rem;
+    margin:10px;
+    font-family: "Special Gothic Expanded One", sans-serif;
+    font-size: 2em;
+    color: #33536b;
+}
+
+section#content th {
+    background:#181C1F;
+    color:#ffffff;
+    text-align:left;
+    padding:10px;
+}
+
+section#content td{
+    border:1px solid #c0c0c0;
+    padding:5px;
+}
+
+section#content tr:nth-child(even){
+    background:#DCDCDC;
+}
+
+section#content tr:hover{
+    background:#8EA6B8;
+}
+
+/* ------------- Articles --------------- */
+
+section#articles {
+    background: #181c1f;
+}
+
+section#articles .container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #c0c0c0;
+    padding: 0 0 4em 0;
+}
+
+section#articles h2,
+#content h2 {
+    flex: 0 0 100%;
+    color: #33536b;
+    text-align: center;
+    font-family: "Special Gothic Expanded One", sans-serif;
+    font-size: 2rem;
+}
+
+section#articles h2 {
+    color: #fff;
+    text-shadow: 2px 2px #000;
+}
+
+#articles article.post {
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    padding: 10px;
+    transition: 0.25s;
+    font-size: 0.8rem;
+    border-radius: 10px;
+    background: #fff;
+    margin-bottom: 20px;
+}
+
+#articles article.post h2 {
+    font-size: 2em;
+    text-shadow: none;
+    text-align: left;
+}
+
+#articles article.post:hover {
+    background: rgba(255, 255, 255, 0.9)
+}
+
+#articles .post a:link,
+#articles .post a:visited {
+    color: #D30628;
+    text-decoration:none;
+}
+
+#articles .post img {
+    border-radius: 10px;
+}
+
+#articles ul {
+    padding: 0 20px;
+}
+#articles li {
+    margin-bottom: 20px;
+}
+
+/* ------------- Aside --------------- */
+
+/* Attribute Selector */
+aside[role="complementary"] {
+    color: #ffffff;
+    padding: 2.5em;
+}
+
+aside .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap:20px;
+}
+
+aside article.widget {
+    flex:1;
+    color: #000000;
+}
+
+.widget.overview table {
+    font-size: 0.7em;
+    border-collapse: collapse;
+    width:100%;
+}
+
+.widget.overview table td {
+    border-bottom: 1px solid #000000;
+    padding: 10px;
+}
+
+.widget.overview table td:nth-child(even) {
+    text-align: right;
+}
+
+aside article a:link,
+aside article a:visited {
+    color: #ffffff;
+    display: block;
+    margin-top: 1.2em;
+    letter-spacing: 1.2px;
+}
+
+aside article a:hover,
+aside article a:active {
+    text-decoration: none;
+}
+
+aside article footer {
+    display: none;
+}
+
+/*------ Footer ------*/
+
+footer#colophon {
+    background-color: #77001F;
+}
+
+#colophon h6 {
+    padding: 20px;
+    margin: 0;
+    color: #fff;
+    text-align: center;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+#colophon h6 a:link,
+#colophon h6 a:visited {
+    color: #fff;
+}
+
+section#contact {
+    border: #000 solid 1px;
+    padding: 10px;
+}
+
+/* ---------------Media Queries----------------- */
+
+@media screen and (max-width: 600px) {
+header.primary nav ul {
+    flex-direction: column;
+    margin: 0 auto;
+    width: 400px;
+}
+
+header.primary nav ul li {
+    margin-bottom: 10px;
+    width: 400px;
+}
+
+header.primary nav ul li a {
+    display: block;
+}
+
+section#articles .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #c0c0c0;
+    padding: 0 0 4em 0;
+}
+
+#articles article.post {
+    width: 100%;
+    margin-bottom: 2em;
+}
+
+aside .container {
+    flex-direction: column;
+}
+
+}
